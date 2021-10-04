@@ -1,0 +1,87 @@
+@import './common/mixin.scss';
+
+
+@include b(personal){
+    width: 400px;
+    min-width: 400px;
+    height: 200px;
+    min-height: 200px;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 15px;
+    perspective: 1000px;
+    position: relative;
+    margin: 6px;
+    backdrop-filter: blur(15px);
+    display: flex;
+    
+    border: 1px solid rgba(255, 255, 255, 0.527);
+    transition: all 0.3s ease-in;
+    &:hover{
+        box-shadow: rgb(161, 161, 161) 0px 0px 15px ;
+        border: 1px solid rgba(255, 255, 255, 0.781);
+    }
+    img{
+        height: 100%;
+  width: auto;
+    }
+    @include m(info){
+        background-color: $--color--lightInfo;
+        color:#ffff58;
+        @include b(personal-captal){
+            color: rgb(111, 199, 11);
+        }
+    }
+    @include m(primary){
+        background-color: $--color--lightPrimary;
+        color: rgb(108, 54, 243);
+        @include b(personal-captal){
+            color: rgb(0, 137, 172);
+        }
+    }
+    @include m(error){
+        background-color: $--color--lightError;
+        color:rgb(0, 187, 84);
+        @include b(personal-captal){
+            color: rgb(134, 2, 151);
+        }
+    }
+    @include m(warning){
+        background-color: $--color--lightWarning;
+        color:rgb(228, 0, 141);
+        @include b(personal-captal){
+            color: rgb(204, 0, 17);
+        }
+    }
+    @include m(danger){
+        background-color: $--color--lightDanger;
+        color:rgb(109, 204, 0);
+        @include b(personal-captal){
+            color: rgb(0, 168, 160);
+        }
+    }
+    @include m(success){
+        background-color: $--color--lightSuccess;
+        color:rgb(0, 85, 141);
+        @include b(personal-captal){
+            color: rgb(221, 0, 166);
+        }
+    }
+}
+  
+
+@include b(personal-content){
+    padding: 12px;
+    p{
+        font-size: 14px;
+        margin: 5px;
+    }
+}
+
+@include b(personal-id){
+    margin-top: 4px;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+
+}

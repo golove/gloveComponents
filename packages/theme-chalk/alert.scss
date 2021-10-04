@@ -1,0 +1,30 @@
+@import './common/mixin.scss';
+
+@include b(alert){
+    width: 320px;
+    height: auto;
+    display: flex;
+    border-radius: 5px;
+    
+    
+    @include m(info){
+        background-color: $--color--info;
+    }
+    @include m(primary){
+        background-color: $--color--primary;
+    }
+    @include m(success){
+        background-color: $--color--success;
+    }
+    @include m(error){
+        background-color: $--color--error;
+    }
+    @include m(warning){
+        background-color: $--color--warning;
+    }
+    @include when(light){
+        justify-content: center;
+        line-height: 30px;
+        color: white;
+    }
+}

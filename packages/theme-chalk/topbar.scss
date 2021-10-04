@@ -1,0 +1,242 @@
+@import "./common/mixin.scss";
+
+@include b(topbar) {
+    width: 100vw;
+    height: 60px;
+    line-height: 60px;
+    display: inline-flex;
+    justify-content: center;
+    backdrop-filter: blur(25px);
+    a {
+        text-decoration: none;
+    }
+    /*正常的未被访问过的链接*/
+    a:link {
+        text-decoration: none;
+    }
+    /*已经访问过的链接*/
+    a:visited {
+        text-decoration: none;
+    }
+    /*鼠标划过(停留)的链接*/
+    a:hover {
+        text-decoration: none;
+    }
+    /* 正在点击的链接*/
+    a:active {
+        text-decoration: none;
+    }
+
+    @include m(info) {
+        background-color: $--color--lightInfo;
+        color: #ffff58;
+        a {
+            color: #ffff58;
+        }
+        /*正常的未被访问过的链接*/
+        a:link {
+            color: #b1b106;
+        }
+        /*已经访问过的链接*/
+        a:visited {
+            color: #ffff00;
+        }
+        /*鼠标划过(停留)的链接*/
+        a:hover {
+            color: #fdd520;
+        }
+        /* 正在点击的链接*/
+        a:active {
+            color: #ffbb00;
+        }
+    }
+    @include m(primary) {
+        background-color: $--color--lightPrimary;
+        color: rgb(108, 54, 243);
+        a {
+            color: rgb(108, 54, 243);
+        }
+        /*正常的未被访问过的链接*/
+        a:link {
+            color: rgb(77, 25, 207);
+        }
+        /*已经访问过的链接*/
+        a:visited {
+            color: rgb(167, 54, 243);
+        }
+        /*鼠标划过(停留)的链接*/
+        a:hover {
+            color: rgb(212, 54, 243);
+        }
+        /* 正在点击的链接*/
+        a:active {
+            color: rgb(150, 49, 180);
+        }
+    }
+    @include m(error) {
+        background-color: $--color--lightError;
+        color: rgb(0, 187, 84);
+        a {
+            color: rgb(0, 187, 84);
+        }
+        /*正常的未被访问过的链接*/
+        a:link {
+            color: rgb(6, 153, 72);
+        }
+        /*已经访问过的链接*/
+        a:visited {
+            color: rgb(21, 134, 72);
+        }
+        /*鼠标划过(停留)的链接*/
+        a:hover {
+            color: rgb(0, 187, 178);
+        }
+        /* 正在点击的链接*/
+        a:active {
+            color: rgb(0, 122, 55);
+        }
+    }
+    @include m(warning) {
+        background-color: $--color--lightWarning;
+        color: rgb(228, 0, 141);
+        a {
+            color: rgb(228, 0, 141);
+        }
+        /*正常的未被访问过的链接*/
+        a:link {
+            color: #b10656;
+        }
+        /*已经访问过的链接*/
+        a:visited {
+            color: #ff00f2;
+        }
+        /*鼠标划过(停留)的链接*/
+        a:hover {
+            color: #f620fd;
+        }
+        /* 正在点击的链接*/
+        a:active {
+            color: #ff0040;
+        }
+    }
+    @include m(danger) {
+        background-color: $--color--lightDanger;
+        color: rgb(109, 204, 0);
+        a {
+            color: rgb(109, 204, 0);
+        }
+        /*正常的未被访问过的链接*/
+        a:link {
+            color: #06b148;
+        }
+        /*已经访问过的链接*/
+        a:visited {
+            color: #33ff00;
+        }
+        /*鼠标划过(停留)的链接*/
+        a:hover {
+            color: #00a846;
+        }
+        /* 正在点击的链接*/
+        a:active {
+            color: #00ffd5;
+        }
+    }
+    @include m(success) {
+        background-color: $--color--lightSuccess;
+        color: rgb(0, 85, 141);
+        a {
+            color: rgb(0, 85, 141);
+        }
+        /*正常的未被访问过的链接*/
+        a:link {
+            color: #0e4bbd;
+        }
+        /*已经访问过的链接*/
+        a:visited {
+            color: #006eff;
+        }
+        /*鼠标划过(停留)的链接*/
+        a:hover {
+            color: #20c9fd;
+        }
+        /* 正在点击的链接*/
+        a:active {
+            color: #001aff;
+        }
+    }
+
+
+    @include b(topbar-logo){
+        display: flex;
+        margin-right: 50px;
+        img{
+            height: 60px;
+            width: auto;
+            
+        }
+        p{
+            margin: 0;
+            text-align: center;
+            line-height: 60px;
+            font-size: 30px;
+            font-weight: bold;
+        }
+    }
+
+    @include b(topbar-menu) {
+        display: flex;
+        div {
+            padding: 0 5px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    }
+
+    @include b(topbar-search) {
+        height: 36px;
+        min-width: 320px;
+        border-radius: 18px;
+        margin: 12px 24px;
+        position: relative;
+        display: flex;
+        svg {
+            position: absolute;
+            top: 4px;
+            left: 5px;
+            fill: rgb(251, 254, 255);
+            height: 30px;
+            width: 30px;
+        }
+        input {
+            width: 100%;
+            text-indent: 35px;
+            background-color: rgba(153, 27, 27, 0);
+            padding: 2px;
+            font-weight: 500;
+            box-shadow: 0 0 0 2px white inset;
+            color: rgb(51, 51, 51);
+            border-style: none;
+            border-radius: 17px;
+            &:focus {
+                background-color: rgb(255, 255, 255);
+                outline: none;
+             
+            }
+        }
+    }
+
+    @include b(topbar-login) {
+        display: flex;
+
+        .avatar {
+            background-image: url("https://i.loli.net/2021/08/23/AHJidNuL2OGeBXq.jpg");
+            background-position: 30% 55%;
+            background-repeat: no-repeat;
+            margin: 12.5px;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+        }
+    }
+}

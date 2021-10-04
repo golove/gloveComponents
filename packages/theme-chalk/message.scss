@@ -1,0 +1,42 @@
+@import './common/mixin.scss';
+
+@include b(message){
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 300px;
+    height: 45px;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    transition:  all 0.4s linear;
+
+    @include m(info){
+        background-color: $--color--info;
+    }
+    @include m(primary){
+        background-color: $--color--primary;
+    }
+    @include m(error){
+        background-color: $--color--error;
+    }
+    @include m(warning){
+        background-color: $--color--warning;
+    }
+    @include m(danger){
+        background-color: $--color--danger;
+    }
+    @include m(success){
+        background-color: $--color--success;
+    }
+    @include when(center){
+        justify-content: center;
+        line-height: 45px;
+    }
+
+}
+
+.g-message-fade-enter-from,.g-message-fade-leave-to{
+    transform: translate(-50%,-100%);
+}

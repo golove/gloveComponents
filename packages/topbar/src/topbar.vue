@@ -55,11 +55,15 @@ export default defineComponent({
       ],
     },
   },
+  emits:["getSearchValue"],
   setup(props, { emit }) {
     const links = computed(() => props.links);
     const classs = computed(() => ["g-topbar--" + props.type]);
     const logo = computed(()=>props.logo)
     let inputValue = ref("");
+    // computed(()=>{
+    //   emit("getSearchValue", inputValue.value);
+    // })
     watch(inputValue, (n) => {
       emit("getSearchValue", n);
     });

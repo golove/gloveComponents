@@ -6,7 +6,7 @@ import { GAlert } from "../packages/alert";
 import { GInput } from "../packages/input";
 import { GPersonal } from "../packages/personal";
 import { GTopbar } from "../packages/topbar";
-
+import { GLogin } from "../packages/login";
 let inputValue = ref("");
 console.log(inputValue.value);
 watch(inputValue, (n) => {
@@ -15,7 +15,7 @@ watch(inputValue, (n) => {
 
 let searchValue = ref("");
 
-function getSearchValue(e) {
+function getSearchValue(e: string) {
   searchValue.value = e;
 }
 let arrdata = ref([]);
@@ -35,12 +35,55 @@ watch(searchValue, (n) => {
     arrdata.value = personalData.slice(0, 20);
   }
 });
+
+let loginFlag = ref(false);
+let showFlag = ref(false);
+
+function getLoginUser(user: object) {
+  // console.log(user);
+  setTimeout((user: object) => {
+    console.log(user)
+    if (user.name == "ziyu") {
+      loginFlag.value = true;
+      showFlag.value = true;
+    } else {
+      loginFlag.value = false;
+      showFlag.value = true;
+    }
+  }, 2000);
+  return user;
+}
+
+let user = computed(getLoginUser);
+
+// function checkUser(user: object) {
+//   console.log(user);
+//   if (user.name == "ziyu") {
+//     loginFlag.value = true;
+//     showFlag.value = true;
+//   } else {
+//     loginFlag.value = false;
+//     showFlag.value = true;
+//   }
+// }
 </script>
 
 <template>
-  <g-topbar :links="['主页','关于','用户']" :logo="{title:'golove',src:'https://image.freepik.com/free-vector/letter-g-with-love-logo-design_100735-23.jpg'}" @getSearchValue="getSearchValue" />
+  <g-topbar
+    :links="['主页', '关于', '用户']"
+    :logo="{
+      title: 'golove',
+      src: 'https://image.freepik.com/free-vector/letter-g-with-love-logo-design_100735-23.jpg',
+    }"
+    @getSearchValue="getSearchValue"
+  />
   <g-input type="email" bgColor="primary" v-model="inputValue" />
   <g-alert title="success alert" type="success" />
+  <g-login
+    @getLoginUser="getLoginUser"
+    :vertifyCode="'qwert'"
+    :login="{ loginFlag, showFlag }"
+  />
   <button @click="Message({ center: true, type: 'warning' })">message</button>
   <div class="personalcon">
     <g-personal v-for="(e, i) in arrdata" :userInfo="e" :key="i" />
@@ -48,6 +91,12 @@ watch(searchValue, (n) => {
 </template>
 
 <style>
+#app {
+  background-image: url("./05.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 100vh;
+}
 .personalcon {
   display: flex;
   justify-content: baseline;

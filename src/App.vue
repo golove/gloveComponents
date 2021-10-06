@@ -7,6 +7,7 @@ import { GInput } from "../packages/input";
 import { GPersonal } from "../packages/personal";
 import { GTopbar } from "../packages/topbar";
 import { GLogin } from "../packages/login";
+import { GRegister } from "../packages/register";
 let inputValue = ref("");
 console.log(inputValue.value);
 watch(inputValue, (n) => {
@@ -56,16 +57,7 @@ function getLoginUser(user: object) {
 
 let user = computed(getLoginUser);
 
-// function checkUser(user: object) {
-//   console.log(user);
-//   if (user.name == "ziyu") {
-//     loginFlag.value = true;
-//     showFlag.value = true;
-//   } else {
-//     loginFlag.value = false;
-//     showFlag.value = true;
-//   }
-// }
+
 </script>
 
 <template>
@@ -79,11 +71,12 @@ let user = computed(getLoginUser);
   />
   <g-input type="email" bgColor="primary" v-model="inputValue" />
   <g-alert title="success alert" type="success" />
-  <g-login
+  <!-- <g-login
     @getLoginUser="getLoginUser"
     :vertifyCode="'qwert'"
     :login="{ loginFlag, showFlag }"
-  />
+  /> -->
+  <g-register />
   <button @click="Message({ center: true, type: 'warning' })">message</button>
   <div class="personalcon">
     <g-personal v-for="(e, i) in arrdata" :userInfo="e" :key="i" />

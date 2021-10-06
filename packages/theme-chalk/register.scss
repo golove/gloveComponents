@@ -1,0 +1,154 @@
+@import "./common/mixin.scss";
+
+@include b(register) {
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(25px);
+    width: 500px;
+    height: 470px;
+    border-radius: 15px;
+    padding: 30px;
+    user-select: none;
+
+    h2 {
+        font-size: 45px;
+        color: white;
+        font-weight: 900;
+    }
+    @include b(register-inputgroup) {
+        width: 100%;
+        div {
+            position: relative;
+            width: 100%;
+            height: 40px;
+            display: flex;
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.3);
+            margin-top: 12px;
+            overflow: hidden;
+            input {
+                font-size: 18px;
+                text-indent: 8px;
+                width: 100%;
+                background-color: rgba(157, 212, 45, 0);
+                border: none;
+                color: white;
+                &:focus {
+                    outline: none;
+                }
+            }
+            svg {
+                width: 35px;
+                height: 35px;
+                fill: rgba(0, 128, 128, 0.521);
+                padding: 2.5px 15px;
+                background-color: rgba(255, 255, 255, 0.219);
+            }
+            button {
+                position: absolute;
+                cursor: pointer;
+                right: 0;
+                min-width: 120px;
+                height: 100%;
+                padding: 0px 5px;
+                font-weight: bold;
+                font-size: 16px;
+                color: white;
+                background-color: rgb(9, 185, 255);
+                outline: none;
+                border: none;
+                border-radius: 22.5px;
+                transition: all 0.3s ease-in-out;
+                &:hover {
+                    background-color: rgb(255, 255, 255);
+                    color: rgb(9, 185, 255);
+                }
+                &:disabled {
+                    background-color: rgba(119, 120, 121, 0.384);
+                    &:hover {
+                        background-color: rgba(119, 120, 121, 0.384);
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+
+    @include b(register-checkbox) {
+        margin: 2rem 0;
+        input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+        }
+
+        input[type="checkbox"] + .checkbox-label:before {
+            content: "";
+            background: #f4f4f42f;
+            border-radius: 100%;
+            border: 2px solid #3197ee;
+            display: inline-block;
+            width: 1.4em;
+            height: 1.4em;
+            position: relative; 
+            margin-right: 1em;
+            vertical-align: top;
+            cursor: pointer;
+            text-align: center;
+            -webkit-transition: all 250ms ease;
+            transition: all 250ms ease;
+        }
+
+        input[type="checkbox"]:checked + .checkbox-label:before {
+            background-color: #3197ee;
+            box-shadow: inset 0 0 0 2px #f4f4f4c5;
+        }
+
+        input[type="checkbox"]:focus + .checkbox-label:before {
+            outline: none;
+            border-color: #3197ee;
+        }
+
+        input[type="checkbox"]:disabled + .checkbox-label:before {
+            box-shadow: inset 0 0 0 4px #f4f4f4;
+            border-color: #b4b4b4;
+            background: #b4b4b4;
+        }
+        input[type="checkbox"] + .checkbox-label:empty:before {
+            margin-right: 0;
+        }
+    }
+
+    @include b(register-buttongroup) {
+        margin-top: 25px;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: 45px;
+        // background-color: white;
+        button {
+            cursor: pointer;
+            width: 120px;
+            height: 100%;
+            padding: 6px 10px;
+            letter-spacing: 5px;
+            font-weight: bold;
+            font-size: 20px;
+            color: white;
+            background-color: rgb(9, 185, 255);
+            outline: none;
+            border: none;
+            border-radius: 22.5px;
+            transition: all 0.3s ease-in-out;
+            &:hover {
+                background-color: rgb(255, 255, 255);
+                color: rgb(9, 185, 255);
+            }
+            &:disabled {
+                background-color: rgba(119, 120, 121, 0.384);
+                &:hover {
+                    background-color: rgba(119, 120, 121, 0.384);
+                    color: white;
+                }
+            }
+        }
+    }
+}

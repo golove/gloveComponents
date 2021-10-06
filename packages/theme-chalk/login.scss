@@ -8,11 +8,13 @@
     height: 400px;
     border-radius: 15px;
     padding: 30px;
+    user-select:none;
     
     h2{
         font-size: 45px;
         color: white;
         font-weight: 900;
+        
     }
    @include b(login-inputgroup){
         width: 100%;

@@ -55,6 +55,14 @@ function getLoginUser(user: object) {
   return user;
 }
 
+
+function getRegisterUser(user:Object){
+  console.log(user)
+} 
+
+getRegisterUser
+
+
 let user = computed(getLoginUser);
 
 
@@ -76,7 +84,7 @@ let user = computed(getLoginUser);
     :vertifyCode="'qwert'"
     :login="{ loginFlag, showFlag }"
   /> -->
-  <g-register />
+  <g-register @getRegisterUser="getRegisterUser" />
   <button @click="Message({ center: true, type: 'warning' })">message</button>
   <div class="personalcon">
     <g-personal v-for="(e, i) in arrdata" :userInfo="e" :key="i" />

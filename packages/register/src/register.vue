@@ -126,7 +126,8 @@ export default defineComponent({
       default: false,
     },
   },
-  setup() {
+  emits:['getRegisterUser'],
+  setup(props,{emit}) {
     let name = ref("");
     let password = ref("");
     let email = ref("");
@@ -190,7 +191,9 @@ export default defineComponent({
 
     console.log(disabledFlag.value)
 
-    function submit() {}
+    function submit() {
+      emit('getRegisterUser',{name:name.value,password:password.value,email:email.value})
+    }
 
     return {
       name,
